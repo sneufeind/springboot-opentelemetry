@@ -1,5 +1,7 @@
 # Spring Boot Opentelemetry Exaple
 
+![Sequence-Diagram](docs/sequenz.png)
+
 ## Opentelemetry Agent
 
 ### Properties

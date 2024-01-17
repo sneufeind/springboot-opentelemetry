@@ -1,0 +1,11 @@
+@startuml
+actor "User" as user
+participant "API-Gateway" as api_gw
+participant "Greet-Service" as greet
+database "Greet-DB" as greet_db
+
+user -> api_gw: GET /api/greet
+api_gw -> greet: GET /greet
+greet -> greet: createMessage
+greet -> greet_db : save
+@enduml
