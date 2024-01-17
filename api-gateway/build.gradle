@@ -1,0 +1,13 @@
+dependencies {
+//    implementation('com.github.loki4j:loki-logback-appender')
+    implementation('com.grafana:grafana-opentelemetry-starter')
+    implementation('io.github.openfeign:feign-micrometer')  // muss hinzugefügt werden, damit die Trace ID weiterpropagiert wird, siehe https://github.com/OpenFeign/feign/issues/1893
+    implementation('io.micrometer:micrometer-tracing-bridge-otel')
+    implementation('io.opentelemetry:opentelemetry-exporter-otlp')
+    implementation('org.springframework.boot:spring-boot-starter-actuator')
+    implementation('org.springframework.boot:spring-boot-starter-aop')
+    implementation('org.springframework.boot:spring-boot-starter-web')
+    implementation('org.springframework.cloud:spring-cloud-starter-openfeign')
+
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+}

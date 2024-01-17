@@ -1,0 +1,28 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, metrics, prometheus
+  metrics:
+    distribution:
+      percentiles-histogram:
+        http:
+          server:
+            requests: true
+  tracing:
+    sampling:
+      probability: 1.0
+
+spring:
+  application:
+    name: api-gateway
+
+#tracing:
+#  url: http://localhost:4318/v1/traces
+
+grafana:
+  otlp:
+    cloud:
+      apiKey: ${GRAFANA_CLOUD_API_KEY}
+      instanceId: ${GRAFANA_CLOUD_INSTANCE_ID}
+      zone: ${GRAFANA_CLOUD_ZONE:prod-eu-west-2}

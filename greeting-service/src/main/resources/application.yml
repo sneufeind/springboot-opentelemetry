@@ -1,0 +1,38 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, metrics, prometheus
+  metrics:
+    distribution:
+      percentiles-histogram:
+        http:
+          server:
+            requests: true
+  tracing:
+    sampling:
+      probability: 1.0
+
+server:
+  port: 8081
+
+spring:
+  application:
+    name: greeting-service
+  datasource:
+    url: jdbc:h2:mem:greetdb
+    username: sa
+    password: sa
+    driverClassName: org.h2.Driver
+  h2:
+    console.enabled: true   #see http://localhost:8081/h2-console
+  jpa:
+    open-in-view: false
+    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+
+grafana:
+  otlp:
+    cloud:
+      apiKey: ${GRAFANA_CLOUD_API_KEY}
+      instanceId: ${GRAFANA_CLOUD_INSTANCE_ID}
+      zone: ${GRAFANA_CLOUD_ZONE:prod-eu-west-2}
